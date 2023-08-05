@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: url(background3.jpg);
+            width: 90%;
+            height: 90vh;
+            background-repeat: no-repeat;
+            background-size: cover;
+            text-align: center;
+        }
+        
+        header{
+            color: white;
+            font-size: 60px;
+            margin: 30px;
+        }
+
+        #lista{
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: nowrap;
+            flex-direction: column;
+            justify-content: center;
+            overflow-y: scroll;
+            max-height: 400px;
+            min-width: 40%;
+            min-height: 400px;
+            max-width: 350px;
+            color: white;
+            
+        }
+
+        #lista::-webkit-scrollbar {
+            width: 0px;
+        }
+
+        #div-to-do{
+            margin: 30px;
+        }
+
+        span{
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        to do list
+    </header>
+
+    <main>
+        <div id="lista">
+
+        </div>
+        <div id="div-to-do">
+            <label for="to-do">
+                <span>TO-DO</span>
+                <br>
+                <input type="text" id="to-do">
+            </label>
+            <input type="button" value="Criar" id="criar">
+            
+        </div>
+    </main>
+
+    <script>
+        var lista = document.getElementById('lista')
+        var butao = document.getElementById('criar')
+        var texto = document.getElementById('to-do')
+
+        butao.addEventListener("click", () => {
+            var mensagem = texto.value
+
+            criar(mensagem)
+        })
+
+        function criar(mensagem) {
+            lista.innerHTML += `<div>${mensagem}<input type="checkbox"></div><br>`
+        }
+    </script>
+</body>
+</html>
