@@ -11,13 +11,20 @@
             height: 90vh;
             background-repeat: no-repeat;
             background-size: cover;
-            text-align: center;
+        }
+
+        main{
+            border: 1px solid black;
+            margin-left: 50%;
+            transform: translateX(-50%);
         }
         
         header{
             color: white;
             font-size: 60px;
             margin: 30px;
+            margin-left: 50%;
+            transform: translateX(-10%);
         }
 
         #lista{
@@ -41,6 +48,8 @@
 
         #div-to-do{
             margin: 30px;
+            margin-left: 50%;
+            transform: translateX(-40%);
         }
 
         span{
@@ -75,13 +84,28 @@
         var texto = document.getElementById('to-do')
 
         butao.addEventListener("click", () => {
-            var mensagem = texto.value
+            let mensagem = verificar_texto(texto)
 
             criar(mensagem)
         })
 
+        function verificar_texto(texto) {
+            let mensagem = texto.value
+
+            if(mensagem != ""){
+                return mensagem
+            }else{
+                return "erro"
+            }
+        }
+
         function criar(mensagem) {
-            lista.innerHTML += `<div>${mensagem}<input type="checkbox"></div><br>`
+            if(mensagem == "erro"){
+                console.log('erro')
+            }else{
+                lista.innerHTML += `<div>${mensagem}<input type="checkbox"></div><br>`
+            }
+            
         }
     </script>
 </body>
