@@ -42,6 +42,21 @@
             
         }
 
+        .task{
+            background-color: brown;
+            position: relative;
+        }
+
+        .checkbox{
+            position: absolute;
+            right: 0px;
+        }
+
+        .checkbox:checked ~ .task{
+            background-color: rgb(44, 11, 11);
+            position: relative;
+        }
+
         #lista::-webkit-scrollbar {
             width: 0px;
         }
@@ -103,7 +118,11 @@
             if(mensagem == "erro"){
                 console.log('erro')
             }else{
-                lista.innerHTML += `<div>${mensagem}<input type="checkbox"></div><br>`
+                lista.innerHTML += 
+                `<label for = "${mensagem}" class= "task">
+                    <span>${mensagem}</span>
+                    <input type="checkbox" class = "checkbox" id= "${mensagem}">
+                </label><br>`
             }
             
         }
